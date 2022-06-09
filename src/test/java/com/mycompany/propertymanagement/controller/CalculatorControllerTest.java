@@ -1,10 +1,13 @@
 package com.mycompany.propertymanagement.controller;
 
+import com.mycompany.propertymanagement.dto.CalculatorDTO;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 @ExtendWith(MockitoExtension.class)
 public class CalculatorControllerTest {
@@ -61,6 +64,20 @@ public class CalculatorControllerTest {
     public void testSubFunction_num1_1t_num2(){
         Double result = calculatorController.substract(num1,num2+1);
         assertEquals(1.0,result);
+    }
+    @Test
+    @DisplayName("Test Multiplication")
+    void testMultiply(){
+        CalculatorDTO calculatorDTO = new CalculatorDTO();
+        calculatorDTO.setNum1(num1);
+        calculatorDTO.setNum2(num2);
+        calculatorDTO.setNum1(num3);
+        calculatorDTO.setNum2(2.0);
+
+        ResponseEntity<Double> responseEntity = calculatorController.multiply(calculatorDTO);
+        assertEquals(85.7,responseEntity.getBody());
+        assertEquals(HttpStatus.OK.value(), responseEntity.getStatusCodeValue(),"Expecting the status as CREATED");
+
     }
 
 }
