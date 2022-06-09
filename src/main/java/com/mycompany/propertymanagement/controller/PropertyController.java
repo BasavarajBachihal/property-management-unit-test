@@ -23,7 +23,7 @@ public class PropertyController {
     //http://localhost:8080/api/v1/properties/hello
     @GetMapping("/hello")
     public String sayHello(){
-        return "hello";
+        return "Hello";
     }
     @PostMapping("/properties")
     public ResponseEntity<PropertyDTO> saveProperty(@RequestBody PropertyDTO propertyDTO){
