@@ -71,12 +71,12 @@ public class CalculatorControllerTest {
         CalculatorDTO calculatorDTO = new CalculatorDTO();
         calculatorDTO.setNum1(num1);
         calculatorDTO.setNum2(num2);
-        calculatorDTO.setNum1(num3);
-        calculatorDTO.setNum2(2.0);
+        calculatorDTO.setNum3(num3);
+        calculatorDTO.setNum4(2.0);
 
         ResponseEntity<Double> responseEntity = calculatorController.multiply(calculatorDTO);
-        assertEquals(85.7,responseEntity.getBody());
-        assertEquals(HttpStatus.OK.value(), responseEntity.getStatusCodeValue(),"Expecting the status as CREATED");
+        assertEquals(85.75,responseEntity.getBody());
+        assertEquals(HttpStatus.OK.value(), responseEntity.getStatusCodeValue(),"Expecting the status as OK");
 
     }
 
