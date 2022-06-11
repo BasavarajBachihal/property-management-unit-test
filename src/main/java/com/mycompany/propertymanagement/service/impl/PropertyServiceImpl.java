@@ -96,6 +96,8 @@ public class PropertyServiceImpl implements PropertyService {
             pe.setDescription(propertyDTO.getDescription());
             dto = propertyConverter.convertEntityToDTO(pe);
             propertyRepository.save(pe);
+        }else{
+            throw new BusinessException("No Property Found for update");
         }
         return dto;
     }
