@@ -20,9 +20,9 @@ public class PropertyEntity {
     @Column(name = "PROPERTY_TITLE", nullable = false)
     private String title;
     private String description;
+    private String ownerName;
+    @Column(name = "EMAIL")
+    private String ownerEmail;
     private Double price;
     private String address;
-    @ManyToOne//(fetch = FetchType.LAZY)//it will not fetch the user data while fetching property
-    @JoinColumn(name = "USER_ID", nullable = false)
-    private UserEntity userEntity;
 }

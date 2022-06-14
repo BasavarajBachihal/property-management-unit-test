@@ -48,4 +48,3 @@ public class CustomExceptionHandler {
         return new ResponseEntity<List<ErrorModel>>(bex.getErrors(), HttpStatus.BAD_REQUEST);
     }
 }
-
